@@ -1,0 +1,17 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon --exec standard & nodemon --exec jasmine"
+  },
+  "standard": {
+  "ignore": [
+    "spec/**.js",
+    "node_modules/**"
+  ]
+},
+  "author": "",
+  "license": "ISC"
+}
