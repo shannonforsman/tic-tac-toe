@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  width: 600px;
+  height: 600px;
+  background: #f6f6f6;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);(0, 0, 0);
+  padding: 20px;
+}
+
+.section {
+  width: 30%;
+  height: 30%;
+  float: left;
+  background: #ddd;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.section:nth-child(3n) {
+  margin-right: 0%;
+}
