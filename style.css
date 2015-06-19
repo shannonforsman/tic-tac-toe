@@ -17,6 +17,14 @@ main {
   padding: 2%;
 }
 
+header {
+  color: #DA4440;
+  font-size: 65px;
+  letter-spacing: 17px;
+  font-family: 'quicksand';
+  text-align: center;
+}
+
 .section {
   width: 30%;
   height: 30%;
