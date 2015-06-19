@@ -12,6 +12,9 @@
     "node_modules/**"
   ]
 },
+"engines": {
+    "node": "0.12.2"
+},
   "author": "",
   "license": "ISC"
 }
