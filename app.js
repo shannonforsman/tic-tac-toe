@@ -22,12 +22,9 @@ function checkWinner (obj) {
         if (counter1 === 3) {
           alert(obj['player'] + ' wins!')
           boardReset()
-
         }
       }
-
     })
-
   })
 }
 
@@ -69,3 +66,8 @@ main.addEventListener('click', function (e) {
   }
 
 })
+
+module.exports = {
+  boardReset: boardReset,
+  checkWinner: checkWinner
+}
