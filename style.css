@@ -1,14 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300);
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  background: #BD3632;
 }
 
 main {
   width: 600px;
   height: 600px;
-  background: #f6f6f6;
+  background: #fff;
   margin: 20px auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);(0, 0, 0);
-  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 2%;
 }
 
 .section {
@@ -18,8 +24,16 @@ main {
   background: #ddd;
   margin-right: 5%;
   margin-bottom: 5%;
+  font-size: 110px;
+  font-family: 'quicksand';
+  text-align: center;
+  color: #C4C815;
 }
 
 .section:nth-child(3n) {
   margin-right: 0%;
+}
+
+.section span {
+  color: #00A7C5;
 }
