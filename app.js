@@ -1,73 +1,47 @@
 var main = document.getElementById('main')
 var squares = document.getElementsByClassName('section')
-var counter = 0
 
 var winning = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
 
-var ticTacToe = {
-  player: 'x'
+var Game = function () {
+  this.obj = {}
+  this.player = 'X'
+  this.counter = 0
 }
 
-var player1 = {player: 'X'}
-var player2 = {player: 'O'}
+var game = new Game()
 
-function checkWinner (obj) {
-  winning.forEach(function (el) {
-    var counter1 = 0
-
-    el.forEach(function (el) {
-      if (obj.hasOwnProperty(el)) {
-        counter1++
-        console.log(counter)
-        if (counter1 === 3) {
-          alert(obj['player'] + ' wins!')
-          boardReset()
-        }
-      }
-    })
-  })
-}
-
-function boardReset () {
-  player1 = {player: 'X'}
-  player2 = {player: 'O'}
+function clearBoard () {
   for (var i = 0; i < squares.length; i++) {
     squares[i].innerHTML = ''
-    counter = 0
+  }
+  game = new Game()
+}
+
+Game.prototype.move = function (e) {
+  var player = game.player
+
+  if (e.target.dataset.id && e.target.innerHTML === '') {
+    game.counter++
+    if (player === 'O') e.target.style.color = '#00A7C5'
+    if (player === 'X') e.target.style.color = '#C4C815'
+    game.obj[e.target.dataset.id] = player
+    e.target.innerHTML = player
+    checkWinner(player)
+    game.player = player === 'O' ? 'X' : 'O'
   }
 }
 
-main.addEventListener('click', function (e) {
-  if (e.target.dataset.id) {
-    if (ticTacToe.player === 'x' && e.target.innerHTML.length === 0) {
-      counter ++
-      player1[e.target.dataset.id] = ticTacToe.player
-      e.target.innerHTML = ticTacToe.player
-      ticTacToe.player = 'o'
-      checkWinner(player1)
-      if (counter === 9) {
-        alert('draw!')
-        boardReset()
-      }
+main.addEventListener('click', game.move)
 
-    } else if (ticTacToe.player === 'o' && e.target.innerHTML.length === 0) {
-      counter++
-      player2[e.target.dataset.id] = ticTacToe.player
-      e.target.innerHTML = '<span>' + ticTacToe.player + '</span>'
-      ticTacToe.player = 'x'
-      checkWinner(player2)
-      if (counter === 9) {
-        alert('draw!')
-        boardReset()
-      }
+function checkWinner (player) {
+  winning.forEach(function (el) {
+    if (game.obj[el[0]] === player && game.obj[el[1]] === player && game.obj[el[2]] === player) {
+      this.alert(player + ' wins!')
+      clearBoard()
+    } else if (game.counter === 9) {
+      this.alert('a draw!')
+      clearBoard()
     }
-
-    console.log(counter)
-  }
-
-})
-
-module.exports = {
-  boardReset: boardReset,
-  checkWinner: checkWinner
+  })
 }

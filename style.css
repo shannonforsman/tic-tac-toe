@@ -23,6 +23,7 @@ header {
   letter-spacing: 17px;
   font-family: 'quicksand';
   text-align: center;
+  text-shadow: 2px 2px 10px rgba(0,0,0,.2);
 }
 
 .section {
@@ -35,13 +36,9 @@ header {
   font-size: 110px;
   font-family: 'quicksand';
   text-align: center;
-  color: #C4C815;
+  line-height: 160px;
 }
 
 .section:nth-child(3n) {
   margin-right: 0%;
-}
-
-.section span {
-  color: #00A7C5;
 }
